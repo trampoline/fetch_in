@@ -8,7 +8,7 @@ begin
     gem.summary = %Q{simple value fetching in nested associative structures}
     gem.description = %Q{fetch values from nested associative structures without worring about nils, a la clojure's get-in}
     gem.email = "mccraigmccraig@googlemail.com"
-    gem.homepage = "http://github.com/mccraigmccraig/fetch_in"
+    gem.homepage = "http://github.com/trampoline/fetch_in"
     gem.authors = ["mccraig mccraig of the clan mccraig"]
     gem.add_development_dependency "rspec", ">= 1.2.9"
     gem.add_development_dependency "rr", ">= 0.10.5"
