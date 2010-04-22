@@ -1,6 +1,13 @@
 = fetch_in
 
-Description goes here.
+adds a :fetch_in method to Hash and Array which allows values from nested associative
+structures to be fetched without checking for nils
+
+ h={:foo=>[{:bar=>1}]}
+ h.fetch_in(:foo, 0, :bar)
+ => 1
+ h.fetch_in(:bar, 0, :foo)
+ => nil
 
 == Note on Patches/Pull Requests
  
