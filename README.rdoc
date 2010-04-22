@@ -1,13 +1,37 @@
 = fetch_in
 
-adds a :fetch_in method to Hash and Array which allows values from nested associative
-structures to be fetched without checking for nils
+adds fetch_in and store_in methods to Hash and Array which allow for easy fetching 
+and storing of values in nested associative structures
+
+=== fetch_in
+
+fetch values from nested associative structures without worrying about testing
+for nils
 
  h={:foo=>[{:bar=>1}]}
  h.fetch_in(:foo, 0, :bar)
  => 1
  h.fetch_in(:bar, 0, :foo)
  => nil
+
+=== store_in
+
+store values in a nested associative structure, automatically creating new levels
+in the structure if required
+
+ h={}
+ h.store_in(:foo, :bar, 2)
+ h
+ =>{:foo=>{:bar=>2}}
+
+ h=[]
+ h.store_in(1,2,3)
+ h
+ =>[nil,[nil,nil,3]]
+
+== Install
+
+ gem install fetch_in
 
 == Note on Patches/Pull Requests
  
