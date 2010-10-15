@@ -37,6 +37,11 @@ describe "FetchIn" do
     it "should fetch from mixed array and hash nestings" do
       {:foo=>[nil,[nil,{:bar=>5}]]}.fetch_in(:foo,1,1,:bar).should == 5
     end
+
+    it "should permit direct class-method invocation" do
+      FetchIn.fetch_in({:foo=>[nil,[nil,{:bar=>5}]]},
+                       :foo,1,1,:bar).should == 5
+    end
   end
 
   describe "store_in" do
@@ -97,6 +102,12 @@ describe "FetchIn" do
     it "should allow a block to create new levels" do
       s=[]
       s.store_in(1,2,3){|rx_key_stack| {}}
+      s.should == [nil,{2=>3}]
+    end
+
+    it "should permit direct class-method invocation" do
+      s=[]
+      FetchIn.store_in(s,1,2,3){|rx_key_stack| {}}
       s.should == [nil,{2=>3}]
     end
   end
